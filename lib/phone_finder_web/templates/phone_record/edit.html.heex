@@ -1,0 +1,5 @@
+<h1>Edit Phone record</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.phone_record_path(@conn, :update, @phone_record)) %>
+
+<span><%= link "Back", to: Routes.phone_record_path(@conn, :index) %></span>

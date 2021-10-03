@@ -1,0 +1,13 @@
+<h1>Show Phone record</h1>
+
+<ul>
+
+  <li>
+    <strong>First Name:</strong>
+    <%= @phone_record.first_name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.phone_record_path(@conn, :edit, @phone_record) %></span> |
+<span><%= link "Back", to: Routes.phone_record_path(@conn, :index) %></span>

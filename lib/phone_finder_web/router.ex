@@ -18,6 +18,9 @@ defmodule PhoneFinderWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/phone_records", PhoneRecordController
+    get "/search", PhoneRecordController, :search
+    post "/search", PhoneRecordController, :search
   end
 
   # Other scopes may use custom stacks.

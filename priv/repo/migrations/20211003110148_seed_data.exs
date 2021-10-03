@@ -14,7 +14,8 @@ defmodule PhoneFinder.Repo.Migrations.SeedData do
     end
 
     execute "CREATE extension if not exists pg_trgm;"
-    execute "CREATE INDEX full_name_trgm_index ON phone_records USING gin ((first_name || ' ' || last_name) gin_trgm_ops);"
+    execute "CREATE INDEX first_name_trgm_index ON phone_records USING gin (first_name gin_trgm_ops);"
+    execute "CREATE INDEX last_name_trgm_index ON phone_records USING gin (last_name gin_trgm_ops);"
     execute "CREATE INDEX phone_number_trgm_index ON phone_records USING gin (phone_number gin_trgm_ops);"
   end
 end

@@ -1,0 +1,27 @@
+<h1>Listing Phone records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for phone_record <- @phone_records do %>
+    <tr>
+      <td><%= phone_record.first_name %></td>
+      <td><%= phone_record.last_name %></td>
+      <td>
+        <span><%= link "Show", to: Routes.phone_record_path(@conn, :show, phone_record) %></span>
+        <span><%= link "Edit", to: Routes.phone_record_path(@conn, :edit, phone_record) %></span>
+        <span><%= link "Delete", to: Routes.phone_record_path(@conn, :delete, phone_record), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Phone record", to: Routes.phone_record_path(@conn, :new) %></span>

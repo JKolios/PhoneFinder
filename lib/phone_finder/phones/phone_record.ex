@@ -1,5 +1,6 @@
-defmodule PhoneFinder.PhoneRecord do
+defmodule PhoneFinder.Phones.PhoneRecord do
   use Ecto.Schema
+  import Ecto.Changeset
 
   schema "phone_records" do
     field :phone_number, :string
@@ -12,9 +13,10 @@ defmodule PhoneFinder.PhoneRecord do
     field :employer, :string
   end
 
-  def search(term) do
-    PhoneFinder.PhoneRecord |>
-    Ecto.Query.from p in PhoneFinder.PhoneRecord, where: ilike("first_name || ' ' || last_name", "%#{term}%") |>
-    PhoneFinder.Repo.all
+  @doc false
+  def changeset(phone_record, attrs) do
+    phone_record
+    |> cast(attrs, [:name])
+    |> validate_required([:name])
   end
 end

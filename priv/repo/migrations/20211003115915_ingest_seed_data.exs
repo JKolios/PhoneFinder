@@ -7,7 +7,7 @@ defmodule PhoneFinder.Repo.Migrations.IngestSeedData do
     seed_records = Enum.map(seed_file_rows, fn record -> String.split(record, ":") end)
     Enum.map(seed_records,
     fn record ->
-      %PhoneFinder.PhoneRecord{
+      %PhoneFinder.Phones.PhoneRecord{
         phone_number: Enum.at(record, 0),
         first_name: Enum.at(record, 2),
         last_name: Enum.at(record, 3),
