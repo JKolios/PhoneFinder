@@ -32,3 +32,4 @@ phone_finder-*.tar
 npm-debug.log
 /assets/node_modules/
 
+seed_data.txt
