@@ -74,7 +74,7 @@ defmodule PhoneFinder.Phones do
           )
         end)
 
-    Repo.all(from p in PhoneRecord, where: ^conditions)
+    Repo.all(from p in PhoneRecord, where: ^conditions, limit: 20)
   end
 
   @doc """

@@ -21,6 +21,7 @@ defmodule PhoneFinderWeb.Router do
     resources "/phone_records", PhoneRecordController
     get "/search", PhoneRecordController, :search
     post "/search", PhoneRecordController, :search
+    live "/livesearch", PhoneRecordSearchLive
   end
 
   # Other scopes may use custom stacks.

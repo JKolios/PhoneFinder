@@ -1,0 +1,40 @@
+<h1>Live Phone record search</h1>
+
+<.form let={f} for={:search_term} phx-change="search_term_change" >
+  <%= label f, :search_term %>
+  <%= text_input f, :term %>
+</.form>
+
+<p> Current Search Term: <%= @search_term %> </p>
+<p> Current Time: <%= @time %> </p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phone Number</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>Current Location</th>
+      <th>Born In</th>
+      <th>Relationship Status</th>
+      <th>Employer</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for search_result <- @search_results do %>
+    <tr>
+      <td>+<%= search_result.phone_number %></td>
+      <td><%= search_result.first_name %></td>
+      <td><%= search_result.last_name %></td>
+      <td><%= search_result.gender %></td>
+      <td><%= search_result.location_current %></td>
+      <td><%= search_result.location_born_in %></td>
+      <td><%= search_result.relationship_status %></td>
+      <td><%= search_result.employer %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
